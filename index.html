@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronômetro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/jpg" href="asset/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    </div>
+    <div class="main__timer">
+        <input type="text" value="00" id="timer-hours" min="00" max="99" maxlength="2"> 
+        <p class="timer__points">:</p>
+        <input type="text" value="01" id="timer-minutes" min="0" max="59" maxlength="2">
+        <p class="timer__points">:</p>
+        <input type="text" value="30" id="timer-seconds" min="00" maxlength="2" max="59" > 
+    </div>
+
+    <div class="buttons">
+        <button id="button-full-screen" onclick="trocarBotao()"><img src="asset/images/full-screen.svg" alt="Tela Cheia"></button>
+        <button id="button-exit-full-screen" onclick="trocarBotao()" style="display: none;"><img src="asset/images/exit-full-screen.svg" alt="Sair da Tela Cheia"></button>
+        <button class="button-edit"><img src="asset/images/edit.svg" onclick="editarBotao()" alt="Editar"></button>
+        <button id="button-reset" style="display: none;"><img src="asset/images/reset.svg" alt="Resetar"></button>
+        <button class="button-start"><img src="asset/images/play.svg" onclick="start()" alt="Iniciar"></button>
+        <button class="button-cancel" style="display: none;"><img src="asset/images/cancel.svg" alt="Cancelar"></button>
+        <button class="button-pause" style="display: none;"><img src="asset/images/pause.svg" alt="Pausar"></button>
+        <button class="button-ok" style="display: none;"><img src="asset/images/ok.svg" alt="Confirmar"></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>

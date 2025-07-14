@@ -86,9 +86,9 @@ ol {
 #button-full-screen,    
 #button-exit-full-screen,
     .button-edit,
-    .button-start,
+    #button-start,
     .button-cancel,
-    .button-pause,
+    #button-pause,
     #button-reset,
     .button-ok{
       

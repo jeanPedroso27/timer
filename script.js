@@ -8,6 +8,8 @@ const btnPause = document.getElementById('button-pause');
 let secInput  = document.getElementById("timer-seconds");
 let minInput  = document.getElementById("timer-minutes");
 let hourInput  = document.getElementById("timer-hours");
+let pausado = false;
+let parado = false;
 
     // Isso aqui é para meu TIMER aceitar apenas números e também para limitar até 2 números
 
@@ -24,7 +26,22 @@ function sleep(ms) {
     // Realizando uma função para o botão "START"
     // Temos o async na frente da function para que possamos usar o await no final.
 
+function trocarBotao1() {
+  if (btnStart.style.display !== "none") {
+        btnStart.style.display = "none";
+        btnPause.style.display = "inline-block";
+      } else {
+        btnStart.style.display = "inline-block";
+        btnPause.style.display = "none";
+      }
+}    
+
 async function start() {
+
+  trocarBotao1()
+  pausado = false;
+  parado = false;
+  
 
     // Crio um nova variável, tranformando elas em NUMBER e não mais em STRING.
 
@@ -44,8 +61,16 @@ async function start() {
     hourInput.disabled = true;
 
     // FOR feito, para que quando o total de segundos for maior ou igual a 0, ele diminua até chegar em 0.
-
+    
     for(let i = totalSeconds; i >= 0;i--) {
+
+      if (parado) break;
+
+    // Pausar enquanto "pausado = true"
+    while (pausado) {
+      await sleep(100); // Espera e verifica novamente
+      if (parado) break;
+    }
 
      // Assim que clicar no botão ele transforma as HORAS e MINUTOS que estavam em segundos, para HORAS e MINUTOS.
 
@@ -62,7 +87,7 @@ async function start() {
       minInput.value = String(m).padStart(2, '0');
       secInput.value = String(s).padStart(2, '0');
 
-      // Aqui estamos usando para que o código espere 1 segundo antes de continuar.
+      // Aqui estamos usando para que o código espere 1 segundo antes de continuar. Teste
 
       await sleep(1000);
   }
@@ -76,11 +101,15 @@ async function start() {
 
      btnEdit.addEventListener('click', () => {
 
-      btn
+     
      
     });
      
     
+}
+function pausar() {
+  pausado = !pausado;
+  btnPause.innerText = pausado ? "Continuar" : "Pausar";
 }
 
 
@@ -88,6 +117,7 @@ async function start() {
   // EM DESENVOLVIMENTO...
 
  function trocarBotao() {
+
      if (btnEntrar.style.display !== "none") {
         btnEntrar.style.display = "none";
         btnSair.style.display = "inline-block";
